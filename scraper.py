@@ -84,6 +84,8 @@ def scrape_twitter():
     # Rotate proxy
     # proxy = next(proxy_pool)
     # print(f"Using proxy: {proxy}")
+
+    print("start options")
     
     
     # Set up Selenium with Chrome
@@ -95,6 +97,8 @@ def scrape_twitter():
     chrome_options.add_argument("--window-size=1920,1080")  # Set the browser window size
 
     # set_proxy(chrome_options, proxy)
+
+    print("start driver")
     
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     
