@@ -9,6 +9,7 @@ def index():
 
 @app.route("/run_script", methods=["GET"])
 def run_script():
+    print("start scraping")
     result = scrape_twitter()
     return jsonify(result)
 
