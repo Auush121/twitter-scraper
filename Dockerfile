@@ -1,4 +1,3 @@
-FROM cypress/browser:latest
 RUN apt-get update
 # install google chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
