@@ -17,6 +17,10 @@ ENV DISPLAY=:99
 
 RUN apt-get install python3 python3-pip -y
 RUN pip3 install --upgrade selenium webdriver-manager flask mongo tqdm
-ENV PATH /home/root/.local/bin:${PATH}
+# ENV PATH /home/root/.local/bin:${PATH}
 
-COPY app.py scraper.py
+COPY app.py scraper.py proxy_list.txt ./
+COPY templates ./templates
+
+CMD ["python3", "app.py"]
+
