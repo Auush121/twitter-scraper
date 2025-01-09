@@ -14,7 +14,12 @@ import tqdm
 from concurrent.futures import ThreadPoolExecutor
 
 # MongoDB setup
-client = pymongo.MongoClient("mongodb://localhost:27017/")
+CONNECTION_STRING = "mongodb+srv://ayush22608:Ayushsingh1@cluster0.dlgzd.mongodb.net/twitter_trends?retryWrites=true&w=majority"
+
+# Replace <password> with your actual password
+client = pymongo.MongoClient(CONNECTION_STRING)
+
+# Access the database and collection
 db = client["twitter_trends"]
 collection = db["trends"]
 
@@ -85,6 +90,10 @@ def scrape_twitter():
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run in headless mode
     chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")  # Bypass OS security model
+    chrome_options.add_argument("--disable-dev-shm-usage") 
+    chrome_options.add_argument("--window-size=1920,1080")  # Set the browser window size
+
     # set_proxy(chrome_options, proxy)
     
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
