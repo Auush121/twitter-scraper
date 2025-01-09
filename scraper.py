@@ -102,20 +102,24 @@ def scrape_twitter():
 
     try:
         # Log in to Twitter
+        print("logging into twitter")
         driver.get("https://twitter.com/login")
         time.sleep(10)
         
         username = driver.find_element(By.NAME, "text")
+        print("username")
         username.send_keys("AyushSingh78779")
         driver.find_element(By.XPATH, '//span[text()="Next"]').click()
         time.sleep(5)
 
         password = driver.find_element(By.NAME, "password")
+        print("password")
         password.send_keys("demo1234")
         driver.find_element(By.XPATH, '//span[text()="Log in"]').click()
         time.sleep(10)
 
         # Scrape trending topics
+        print("find topics")
         trends_section = driver.find_element(By.XPATH, '//div[@aria-label="Timeline: Trending now"]').text.split("\n")
         trends_text = []
         
